@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 // 初始化css
 import 'normalize.css/normalize.css'
-import installElementPlus, { Size } from './plugins/element'
+import installElementPlus from './plugins/element'
 // 全局 css
 import '@/styles/index.scss'
 // svg icons
