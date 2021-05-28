@@ -20,22 +20,22 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
       }
     ]
   },
-  {
-    path: '/guide',
-    component: Layout,
-    redirect: '/guide/index',
-    children: [
-      {
-        path: 'index',
-        name: 'Guide',
-        component: () => import(/* webpackChunkName: "guide" */ '@/views/guide/index.vue'),
-        meta: {
-          title: 'Guide',
-          icon: 'guide'
-        }
-      }
-    ]
-  },
+  // {
+  //   path: '/guide',
+  //   component: Layout,
+  //   redirect: '/guide/index',
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       name: 'Guide',
+  //       component: () => import(/* webpackChunkName: "guide" */ '@/views/guide/index.vue'),
+  //       meta: {
+  //         title: 'Guide',
+  //         icon: 'guide'
+  //       }
+  //     }
+  //   ]
+  // },
   {
     path: '/system',
     component: Layout,

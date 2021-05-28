@@ -75,7 +75,7 @@ export default defineComponent({
 
     // 子路由数量
     const showingChildNumber = computed(() => {
-      const children = (props.item.children || []).filter((child:any) => {
+      const children = (props.item.children || []).filter((child: any) => {
         if (child.meta && child.meta.hidden) return false
         return true
       })
