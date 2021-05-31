@@ -11,6 +11,7 @@
         <el-menu-item
           :index="resolvePath(theOnlyOneChildRoute.path)"
         >
+        <i v-if="icon && icon.includes('el-icon')" :class="icon"></i>
           <svg-icon
             v-if="icon"
             class="menu-icon"
@@ -110,7 +111,7 @@ export default defineComponent({
     // menu icon
     const icon = computed(() => {
       // 子路由 如果没有icon就用父路由的
-      return theOnlyOneChildRoute.value!.meta!.icon || (props.item.meta && props.item.meta.icon)
+      return (theOnlyOneChildRoute.value!.meta!.icon || (props.item.meta && props.item.meta.icon)) as string
     })
 
     // 拼接路径 父路径+子路径（相对路径）

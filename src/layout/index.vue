@@ -8,19 +8,23 @@
         <div class="navbar">navbar</div>
         <div class="tags-view">tagsview</div>
       </div>
-      <div class="app-main">
+      <!-- <div class="app-main">
         <h2>app main</h2>
         <router-view></router-view>
-      </div>
+      </div> -->
+       <!-- AppMain router-view -->
+      <app-main />
     </div>
   </div>
 </template>
 
 <script>
 import Sidebar from './components/Sidebar'
+import AppMain from './components/AppMain.vue'
 export default {
   components: {
-    Sidebar
+    Sidebar,
+    AppMain
   }
 }
 </script>
