@@ -23,14 +23,16 @@
 
 <script lang="ts">
 import { defineComponent, computed, watch, onMounted } from 'vue'
-import { useRoute, RouteRecordRaw } from 'vue-router'
+import { useRoute, RouteRecordRaw, useRouter } from 'vue-router'
 import { useStore } from '@/store'
+import { RouteLocationWithFullPath } from '@/store/modules/tagsView'
 
 export default defineComponent({
   name: 'TagsView',
   setup() {
     const store = useStore()
     const route = useRoute()
+    const router = useRouter()
     // 从store里获取 可显示的tags view
     const visitedTags = computed(() => store.state.tagsView.visitedViews)
     // 添加tag
@@ -54,6 +56,23 @@ export default defineComponent({
     // 是否是当前应该激活的tag
     const isActive = (tag: RouteRecordRaw) => {
       return tag.path === route.path
+    }
+
+    // 让删除后tags view集合中最后一个为选中状态
+    const toLastView = (visitedViews: RouteLocationWithFullPath[], view: RouteLocationWithFullPath) => {
+      // 得到集合中最后一个项tag view 可能没有
+      const lastView = visitedViews[visitedViews.length - 1]
+      if (lastView) {
+        router.push(lastView.fullPath as string)
+      } else { // 集合中都没有tag view时
+        // 如果刚刚删除的正是Dashboard 就重定向回Dashboard（首页）
+        if (view.name === 'Dashboard') {
+          router.replace({ path: '/redirect' + view.fullPath as string })
+        } else {
+          // tag都没有了 删除的也不是Dashboard 只能跳转首页
+          router.push('/')
+        }
+      }
     }
 
     // 关闭当前右键的tag路由

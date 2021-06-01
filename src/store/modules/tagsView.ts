@@ -1,10 +1,12 @@
 import { Module, ActionTree, MutationTree } from 'vuex'
-import { RouteRecordRaw } from 'vue-router'
+import { RouteRecordRaw, RouteRecordNormalized } from 'vue-router'
 import { IRootState } from '@/store'
-
+export interface RouteLocationWithFullPath extends RouteRecordNormalized {
+  fullPath?: string;
+}
 export interface ITagsViewState {
   // 存放当前显示的tags view集合
-  visitedViews: RouteRecordRaw[];
+  visitedViews: RouteLocationWithFullPath[];
 }
 
 // 定义mutations
@@ -38,7 +40,10 @@ const actions: ActionTree<ITagsViewState, IRootState> = {
   },
   // 删除tags view
   delView({ dispatch }, view: RouteRecordRaw) {
-    dispatch('delVisitedView', view)
+    return new Promise(resolve => {
+      dispatch('delVisitedView', view)
+      resolve(null)
+    })
   },
   // 从可显示的集合中 删除tags view
   delVisitedView({ commit }, view: RouteRecordRaw) {
