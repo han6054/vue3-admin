@@ -1,8 +1,6 @@
 <template>
   <div>
-     <!-- 测试展开收起 -->
-      <h8 @click="isCollapse=!isCollapse">展收测试</h8>
-      <el-menu
+    <el-menu
       class="sidebar-container-menu"
       mode="vertical"
       :default-active="activeMenu"
@@ -11,12 +9,12 @@
       :active-text-color="scssVariables.menuActiveText"
       :collapse="isCollapse"
       :collapse-transition="true"
-      >
+    >
       <sidebar-item
-          v-for="route in menuRoutes"
-          :key="route.path"
-          :item="route"
-          :base-path="route.path"
+        v-for="route in menuRoutes"
+        :key="route.path"
+        :item="route"
+        :base-path="route.path"
       />
     </el-menu>
   </div>
@@ -25,11 +23,10 @@
 <script lang="ts">
 import { defineComponent, computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
-// 导入scss变量在组件中使用
 import variables from '@/styles/variables.scss'
-// el-menu-item封装
-import SidebarItem from './SidebarItem.vue'
 import { routes } from '@/router'
+import SidebarItem from './SidebarItem.vue'
+import { useStore } from '@/store'
 
 export default defineComponent({
   name: 'Sidebar',
@@ -38,19 +35,22 @@ export default defineComponent({
   },
   setup() {
     const route = useRoute()
+    const store = useStore()
+    // 根据路由路径 对应 当前激活的菜单
     const activeMenu = computed(() => {
       const { path } = route
       return path
     })
     // scss变量
     const scssVariables = computed(() => variables)
-    // 菜单展开收起状态 后面会放store里
-    const isCollapse = ref(false)
+    // 展开收起状态 稍后放store 当前是展开就让它收起
+    const isCollapse = computed(() => !store.getters.sidebar.opened)
 
     // 渲染路由
     const menuRoutes = computed(() => routes)
 
     return {
+      // ...toRefs(variables), // 不有toRefs原因 缺点variables里面变量属性来源不明确
       scssVariables,
       isCollapse,
       activeMenu,

@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
+import store, { key } from './store'
 // 初始化css
 import 'normalize.css/normalize.css'
 import installElementPlus from './plugins/element'
@@ -13,7 +13,7 @@ import initSvgIcon from '@/icons/index'
 import { ElMessageBox, ElMessage, ElNotification } from 'element-plus'
 
 const app = createApp(App)
-app.use(store).use(router).use(installElementPlus).use(initSvgIcon).mount('#app')
+app.use(store, key).use(router).use(installElementPlus).use(initSvgIcon).mount('#app')
 
 // vue实例上挂载属性类型声明
 declare module '@vue/runtime-core' {

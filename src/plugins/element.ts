@@ -7,7 +7,9 @@ import {
   ElMessageBox,
   ElMenu,
   ElMenuItem,
-  ElSubmenu
+  ElSubmenu,
+  ElBreadcrumb,
+  ElBreadcrumbItem
 } from 'element-plus'
 import lang from 'element-plus/lib/locale/lang/zh-cn'
 import 'element-plus/lib/theme-chalk/index.css'
@@ -27,7 +29,9 @@ export default (app: App): void => {
     ElMessageBox,
     ElMenu,
     ElMenuItem,
-    ElSubmenu
+    ElSubmenu,
+    ElBreadcrumb,
+    ElBreadcrumbItem
   ]
   components.forEach(component => {
     app.component(component.name, component)

@@ -1,0 +1,35 @@
+<template>
+  <div class="navbar">
+    <breadcrumb />
+    <hambuger @toggleClick="toggleSidebar" :is-active="sidebar.opened"/>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent, computed } from 'vue'
+import Breadcrumb from '@/components/Breadcrumb/index.vue'
+import Hambuger from '@/components/Hambuger/index.vue'
+import { useStore } from '@/store/index'
+
+export default defineComponent({
+  name: 'Navbar',
+  components: {
+    Breadcrumb,
+    Hambuger
+  },
+  setup() {
+    const store = useStore()
+    const toggleSidebar = () => {
+      console.log('click')
+      store.dispatch('app/toggleSidebar')
+    }
+    console.log(store)
+    const sidebar = computed(() => store.getters.sidebar)
+
+    return {
+      toggleSidebar,
+      sidebar
+    }
+  }
+})
+</script>
