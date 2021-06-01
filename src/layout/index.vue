@@ -1,12 +1,12 @@
 <template>
   <div class="app-wrapper">
     <div class="sidebar-container">
-      <Sidebar/>
+      <sidebar/>
     </div>
     <div class="main-container">
       <div class="header">
-        <Navbar />
-        <div class="tags-view">tagsview</div>
+        <navbar />
+        <tags-view />
       </div>
       <app-main />
     </div>
@@ -17,11 +17,14 @@
 import Sidebar from './components/Sidebar'
 import AppMain from './components/AppMain.vue'
 import Navbar from './components/NavBar.vue'
+import TagsView from './components/TagsView'
+
 export default {
   components: {
     Sidebar,
     AppMain,
-    Navbar
+    Navbar,
+    TagsView
   }
 }
 </script>

@@ -4,7 +4,7 @@ import router from './router'
 import store, { key } from './store'
 // 初始化css
 import 'normalize.css/normalize.css'
-import installElementPlus from './plugins/element'
+import installElementPlus, { Size } from './plugins/element'
 // 全局 css
 import '@/styles/index.scss'
 // svg icons
@@ -13,7 +13,9 @@ import initSvgIcon from '@/icons/index'
 import { ElMessageBox, ElMessage, ElNotification } from 'element-plus'
 
 const app = createApp(App)
-app.use(store, key).use(router).use(installElementPlus).use(initSvgIcon).mount('#app')
+const size = store.state.app.size
+
+app.use(store, key).use(router).use(installElementPlus, { size }).use(initSvgIcon).mount('#app')
 
 // vue实例上挂载属性类型声明
 declare module '@vue/runtime-core' {
@@ -23,5 +25,8 @@ declare module '@vue/runtime-core' {
     $confirm: typeof ElMessageBox.confirm;
     $alert: typeof ElMessageBox.alert;
     $prompt: typeof ElMessageBox.prompt;
+    $ELEMENT: {
+      size: Size;
+    };
   }
 }
