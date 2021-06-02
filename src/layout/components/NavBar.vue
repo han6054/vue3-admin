@@ -37,7 +37,6 @@ export default defineComponent({
       console.log('click')
       store.dispatch('app/toggleSidebar')
     }
-    console.log(store)
     const sidebar = computed(() => store.getters.sidebar)
 
     return {

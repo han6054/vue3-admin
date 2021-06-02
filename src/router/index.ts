@@ -106,7 +106,9 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         component: () => import(/* webpackChunkName: "dashboard" */ '@/views/dashboard/index.vue'),
         meta: {
           title: 'Dashboard',
-          icon: 'dashboard'
+          icon: 'el-icon-platform-eleme',
+          affix: true, // 固定显示在tagsView中
+          oCache: false
         }
       }
     ]

@@ -53,6 +53,7 @@ export default defineComponent({
 
     // 刷新当前路由
     const refreshView = () => {
+      store.dispatch('tagsView/delAllCachedViews')
       const { fullPath } = route
       nextTick(() => {
         // 重定向到中间页 实现vue中当前路由刷新
