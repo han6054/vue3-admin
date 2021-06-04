@@ -3,12 +3,16 @@ import { createStore, Store, useStore as baseUseStore } from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 import app, { IAppState } from '@/store/modules/app'
 import tagsView, { ITagsViewState } from '@/store/modules/tagsView'
+import settings, { ISettingsState } from '@/store/modules/settings'
+import user, { IUserState } from '@/store/modules/user'
 import getters from './getters'
 
 // 模块声明在根状态下
 export interface IRootState {
   app: IAppState;
+  user: IUserState;
   tagsView: ITagsViewState;
+  settings: ISettingsState;
 }
 
 // 通过下面方式使用 TypeScript 定义 store 能正确地为 store 提供类型声明。
@@ -30,7 +34,9 @@ export default createStore<IRootState>({
   getters,
   modules: {
     app,
-    tagsView
+    tagsView,
+    settings,
+    user
   }
 })
 

@@ -248,6 +248,11 @@
   resolved "https://registry.nlark.com/@types/node/download/@types/node-15.6.1.tgz#32d43390d5c62c5b6ec486a9bc9c59544de39a08"
   integrity sha1-MtQzkNXGLFtuxIapvJxZVE3jmgg=
 
+"@types/node@^15.6.2":
+  version "15.6.2"
+  resolved "https://registry.nlark.com/@types/node/download/@types/node-15.6.2.tgz?cache=0&sync_timestamp=1622619230894&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-15.6.2.tgz#c61d49f38af70da32424b5322eee21f97e627175"
+  integrity sha1-xh1J84r3DaMkJLUyLu4h+X5icXU=
+
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
   resolved "https://registry.nlark.com/@types/normalize-package-data/download/@types/normalize-package-data-2.4.0.tgz?cache=0&sync_timestamp=1621242064742&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fnormalize-package-data%2Fdownload%2F%40types%2Fnormalize-package-data-2.4.0.tgz#e486d0d97396d79beedd0a6e33f4534ff6b4973e"
@@ -297,6 +302,11 @@
   integrity sha1-HK2N8fsLFDxaugjeVxLqnR/3ESQ=
   dependencies:
     source-map "^0.6.1"
+
+"@types/validator@^13.1.3":
+  version "13.1.3"
+  resolved "https://registry.nlark.com/@types/validator/download/@types/validator-13.1.3.tgz?cache=0&sync_timestamp=1621243843553&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fvalidator%2Fdownload%2F%40types%2Fvalidator-13.1.3.tgz#366b394aa3fbeed2392bf0a20ded606fa4a3d35e"
+  integrity sha1-Nms5SqP77tI5K/CiDe1gb6Sj014=
 
 "@types/webpack-dev-server@^3.11.0":
   version "3.11.4"

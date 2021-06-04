@@ -3,7 +3,7 @@
     <h1>Dashboard page</h1>
     <!-- icon-class svg图标名称 class-name 额外的自定义类名 @click绑定事件 -->
     <!-- <svg-icon icon-class="404" class-name="custom-class" @click="sayHi"></svg-icon> -->
-    缓存测试 <input type="text"/>
+    <!-- 缓存测试 <input type="text"/> -->
   </div>
 </template>
 

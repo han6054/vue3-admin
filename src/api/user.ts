@@ -1,5 +1,6 @@
 import request from '@/api/config/request'
 import { ApiResponse } from './type'
+import { Profile } from '@/store/modules/user'
 
 interface UserLoginData {
   username: string;
@@ -17,8 +18,10 @@ export const login = (data: UserLoginData): Promise<ApiResponse<LoginResponseDat
   )
 }
 
-export const getUserInfo = () => {
-  return request.post(
-    '/'
-  )
+// 获取用户信息
+interface UserBody {
+  token: string;
+}
+export const getUserInfo = (data?: UserBody): Promise<ApiResponse<Profile>> => {
+  return request.post('/auth/info', data)
 }
