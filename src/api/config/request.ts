@@ -28,7 +28,7 @@ service.interceptors.response.use(response => {
   return response.data
 }, (error: AxiosError) => {
   const res = error?.response
-  if (res && res.status === 401) { // 未登录 token失效
+  if (res && res.status === 401) { // 401 未登录 token失效
     store.dispatch('user/resetToken').then(() => {
       window.location.reload()
     })

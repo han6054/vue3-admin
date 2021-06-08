@@ -3,7 +3,6 @@ import { useRoute, LocationQueryRaw } from 'vue-router'
 
 const useRouteQuery = (): Record<string, Ref<any>> => {
   const route = useRoute()
-  console.log(route)
   const query = route.query
   const redirect = ref('')
   const otherQuery = ref<LocationQueryRaw | undefined>(undefined)

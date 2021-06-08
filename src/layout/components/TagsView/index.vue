@@ -226,7 +226,8 @@ export default defineComponent({
   overflow: hidden;
   .tags-view-wrapper {
     .tags-view-item {
-      display: inline-block;
+      float: left;
+      display: block;
       height: 26px;
       line-height: 26px;
       border: 1px solid #d8dce5;

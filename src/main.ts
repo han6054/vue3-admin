@@ -9,6 +9,8 @@ import installElementPlus, { Size } from './plugins/element'
 import '@/styles/index.scss'
 // svg icons
 import initSvgIcon from '@/icons/index'
+// 用户验证
+import './permission'
 // 挂载到vue实例上
 import { ElMessageBox, ElMessage, ElNotification } from 'element-plus'
 
