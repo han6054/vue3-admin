@@ -56,7 +56,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, reactive, toRefs, onMounted, getCurrentInstance } from 'vue'
+import { defineComponent, ref, reactive, toRefs, onMounted } from 'vue'
 import { ElForm } from 'element-plus'
 import { useRouter } from 'vue-router'
 import { useStore } from '@/store'
@@ -69,7 +69,6 @@ export default defineComponent({
     const store = useStore()
     const router = useRouter()
     const loading = ref(false) // 登录加载状态
-    const { proxy } = getCurrentInstance()!
     // form ref
     const loginFormRef = ref<IElFormInstance | null>(null)
     // form username ref
@@ -110,12 +109,11 @@ export default defineComponent({
     const { redirect, otherQuery } = useRouteQuery()
     // 登录
     const handleLogin = () => {
-      (loginFormRef.value as IElFormInstance).validate((valid: any) => {
+      (loginFormRef.value as IElFormInstance).validate((valid) => {
         if (valid) {
           loading.value = true
           store.dispatch('user/login', loginState.loginForm).then(() => {
             // 登录成功后跳转之前被访问页或首页
-            proxy!.$message.success('登录成功')
             router.push({
               path: redirect.value || '/',
               query: otherQuery.value

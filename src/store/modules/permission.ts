@@ -77,6 +77,7 @@ const actions: IActions = {
       } else { // 根据角色过滤菜单
         const roles = store.getters.roleIds
         dispatch('menu/getAccessByRoles', roles, { root: true }).then(menus => {
+          console.log(menus, 'getAccessByRoles')
           if (type !== 1) { // 菜单重新排序 不需要再过次滤路由
             accessedRoutes = filterAsyncRoutes(menus, asyncRoutes)
           }

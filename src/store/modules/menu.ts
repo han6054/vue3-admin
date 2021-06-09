@@ -91,6 +91,7 @@ const actions: IActions = {
   getAccessByRoles({ dispatch, commit }, roles: number[]) {
     return new Promise<MenuData[]>((resolve, reject) => {
       getAccessByRoles(roles).then(response => {
+        console.log(response, 'getAccessByRoles response')
         const { access } = response.data
         dispatch('generateAuthTreeData', [...access])
         commit('SET_AUTH_MENU_LIST', access)
