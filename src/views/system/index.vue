@@ -2,9 +2,7 @@
   <div class="menu-container">
     <!-- 菜单树 -->
     <el-card class="tree-card">
-
         <el-button @click="handleCreateRootMenu">新增顶级菜单</el-button>
-
       <div class="block">
         <div class="menu-tree">
           <el-tree
@@ -228,6 +226,7 @@ export default defineComponent({
     // ············· 添加顶级菜单 ······················
     // 点击添加顶级菜单
     const handleCreateRootMenu = () => {
+      console.log(menuType.value, 'menuType.value')
       menuType.value = 0
       dialogVisible.value = true
     }
@@ -354,7 +353,7 @@ export default defineComponent({
         return temp
       })
       // 批量更新
-      updateBulkMenu(menuList).then(res => {
+      updateBulkMenu(menuList).then((res:any) => {
         if (res.code === 0) {
           // 重新生成菜单    1 代表是菜单排序更新
           store.dispatch('permission/generateRoutes', 1)

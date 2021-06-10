@@ -19,7 +19,14 @@ import {
   ElForm,
   ElFormItem,
   ElTree,
-  ElDrawer
+  ElDrawer,
+  ElTable,
+  ElTableColumn,
+  ElPagination,
+  ElDialog,
+  ElSelect,
+  ElOption,
+  ElScrollbar
 } from 'element-plus'
 import lang from 'element-plus/lib/locale/lang/zh-cn'
 import 'element-plus/lib/theme-chalk/index.css'
@@ -55,7 +62,14 @@ export default (app: App, options: ElementOptions): void => {
     ElForm,
     ElFormItem,
     ElTree,
-    ElDrawer
+    ElDrawer,
+    ElTable,
+    ElTableColumn,
+    ElPagination,
+    ElDialog,
+    ElSelect,
+    ElOption,
+    ElScrollbar
   ]
   components.forEach(component => {
     app.component(component.name, component)

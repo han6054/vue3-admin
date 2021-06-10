@@ -47,26 +47,26 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
     children: [
       {
         path: 'menu',
-        name: 'Menu Management',
+        name: 'menu',
         component: () => import(/* webpackChunkName: "menu" */ '@/views/system/index.vue'),
         meta: {
-          title: 'Menu Management'
+          title: '菜单管理'
         }
       },
       {
         path: 'role',
-        name: 'Role Management',
+        name: 'role',
         component: () => import(/* webpackChunkName: "role" */ '@/views/system/role.vue'),
         meta: {
-          title: 'Role Management'
+          title: '角色管理'
         }
       },
       {
         path: 'user',
-        name: 'User Management',
+        name: 'user',
         component: () => import(/* webpackChunkName: "user" */ '@/views/system/user.vue'),
         meta: {
-          title: 'User Management'
+          title: '用户管理'
         }
       }
     ]
@@ -157,8 +157,8 @@ export const constantRoutes: Array<RouteRecordRaw> = [
 ]
 
 export const routes = [
-  ...constantRoutes,
-  ...asyncRoutes
+  ...constantRoutes
+  // ...asyncRoutes
 ]
 
 const router = createRouter({
