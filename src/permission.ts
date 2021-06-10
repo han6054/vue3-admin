@@ -35,6 +35,7 @@ router.beforeEach(async (to) => {
 
         // 获取权限路由
         const accessRoutes = await store.dispatch('permission/generateRoutes')
+        console.log(accessRoutes, '获取权限路由')
         // 动态注册路由
         accessRoutes.forEach(router.addRoute)
 

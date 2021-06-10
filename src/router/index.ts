@@ -160,7 +160,6 @@ export const routes = [
   ...constantRoutes
   // ...asyncRoutes
 ]
-
 const router = createRouter({
   history: createWebHashHistory(),
   routes
